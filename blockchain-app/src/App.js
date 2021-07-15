@@ -1,11 +1,15 @@
 import './App.css';
-import { useStore } from './stores/store';
+import Home from './components/Home';
+import AddTransactions from './components/AddTransactions';
 
 function App() {
-	const { blockchainStore } = useStore();
-
-	console.log(blockchainStore);
-	return <div className="App">I am app</div>;
+	return (
+		<div className="App">
+			Pending Transactions
+			<Home />
+			<AddTransactions />
+		</div>
+	);
 }
 
 export default App;

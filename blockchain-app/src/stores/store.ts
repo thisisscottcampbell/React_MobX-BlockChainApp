@@ -1,8 +1,9 @@
-//import { makeAutoObservable } from 'mobx';
-import { BlockchainStore } from './BlockchainStore';
 // import sha256 from 'crypto-js/sha256';
+
+import { BlockchainStore } from './BlockchainStore';
 import { createContext, useContext, useEffect } from 'react';
 
+//***leave store interface */
 interface Store {
 	blockchainStore: BlockchainStore;
 }
@@ -19,31 +20,3 @@ export const StoreContext = createContext(store);
 export function useStore() {
 	return useContext(StoreContext);
 }
-
-// interface IBlock {
-// 	hash: string;
-// 	transactions: Array<string>;
-// }
-
-// class BlockchainStore {
-// 	blocks: Array<IBlock> = [];
-// 	transactions: Array<string> = [];
-
-// 	constructor() {
-// 		makeAutoObservable(this);
-// 	}
-
-// 	addTransaction(message: string) {
-// 		this.transactions.push(message);
-// 	}
-// }
-
-// const StoreContext = createContext<BlockchainStore>(new BlockchainStore());
-
-// const StoreProvider: FC<{ store: BlockchainStore }> = ({ store, children }) => (
-// 	<StoreContext.Provider value={store}>{children}</StoreContext.Provider>
-// );
-
-// const useStore = () => useContext(StoreContext);
-
-// export { BlockchainStore, StoreProvider, useStore };

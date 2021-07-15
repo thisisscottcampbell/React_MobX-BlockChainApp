@@ -1,9 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-
-interface IBlock {
-	hash: string;
-	transactions: Array<string>;
-}
+import { IBlock } from './Types/interfaces';
 
 export class BlockchainStore {
 	blocks: Array<IBlock> = [];
