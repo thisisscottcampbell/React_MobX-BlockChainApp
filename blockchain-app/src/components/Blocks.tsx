@@ -12,7 +12,7 @@ const Blocks = observer(() => {
 	const renderBlocks = orderedBlocks.map((block) => (
 		<li key={block.hash}>
 			<h3>{block.hash}</h3>
-			<pre>{JSON.stringify(block.transactions, null, 2)}</pre>
+			<pre>{JSON.stringify(block.transactions)}</pre>
 		</li>
 	));
 
