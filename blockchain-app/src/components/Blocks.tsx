@@ -1,4 +1,5 @@
 import React from 'react';
+import Title from './Title';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
 
@@ -17,7 +18,7 @@ const Blocks = observer(() => {
 
 	return (
 		<div>
-			<h2>Blocks</h2>
+			<Title />
 			<ul className="blocks">{renderBlocks}</ul>
 		</div>
 	);

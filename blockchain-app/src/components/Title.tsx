@@ -7,8 +7,8 @@ const Title: FC = observer(() => {
 
 	return (
 		<div>
-			<p>Curent Blocks: </p>
-			{blockchainStore.numberBlocks}
+			<h4>Total Blocks: {blockchainStore.numberBlocks}</h4>
+			<h5>Status: {blockchainStore.validate ? 'Valid' : 'Invalid'}</h5>
 		</div>
 	);
 });
