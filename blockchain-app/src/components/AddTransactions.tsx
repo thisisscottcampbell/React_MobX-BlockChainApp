@@ -1,19 +1,23 @@
 import React, { useState, FC } from 'react';
-import { useStore } from '../stores/store';
+import { useStore, store } from '../stores/store';
 //const { blockchainStore } = useStore();
 
 const AddTransactions: FC = () => {
 	const [input, setInput] = useState('');
 	const { blockchainStore } = useStore();
 
-	const handleChange = (e) => setInput(e.target.value);
-	const handleSubmit = {};
 	return (
-		<form onSubmit={}>
+		<form
+			onSubmit={(e) => {
+				e.preventDefault();
+				blockchainStore.addTransaction(input);
+				setInput('');
+			}}
+		>
 			<input
 				type="text"
 				value={input}
-				onChange={handleChange}
+				onChange={(e) => setInput(e.target.value)}
 				placeholder="message"
 				required
 			/>

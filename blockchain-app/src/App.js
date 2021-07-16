@@ -5,9 +5,9 @@ import AddTransactions from './components/AddTransactions';
 function App() {
 	return (
 		<div className="App">
-			Pending Transactions
-			<Home />
+			MobX Blockchain App
 			<AddTransactions />
+			<Home />
 		</div>
 	);
 }

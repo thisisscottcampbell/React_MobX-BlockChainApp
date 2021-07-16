@@ -1,9 +1,15 @@
-import React, { useState, FC } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
 
 const Transactions: FC = observer(() => {
 	const { blockchainStore } = useStore();
+
+	useEffect(() => {
+		const updateBlock = setInterval(() => blockchainStore.writeBlock(), 5000);
+
+		return () => clearInterval(updateBlock);
+	});
 
 	return blockchainStore.transactions.length > 0 ? (
 		<div>
@@ -14,7 +20,9 @@ const Transactions: FC = observer(() => {
 				))}
 			</ul>
 		</div>
-	) : null;
+	) : (
+		<h3>No Pending Transactions</h3>
+	);
 });
 
 export default Transactions;
