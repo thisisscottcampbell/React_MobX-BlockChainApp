@@ -14,6 +14,16 @@ export class BlockchainStore {
 		return this.blocks.length;
 	}
 
+	get validate() {
+		return this.blocks.every((block, index) => {
+			const prevBlock = this.blocks[index - 1] ?? { hash: '' };
+			const hash = sha256(
+				`${prevBlock.hash}${JSON.stringify(block.transactions)}`
+			).toString();
+			return hash === block.hash;
+		});
+	}
+
 	addTransaction(message: string) {
 		this.transactions.push(message);
 	}

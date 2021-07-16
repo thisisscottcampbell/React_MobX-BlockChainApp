@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
 
-const Blocks = () => {
+const Blocks = observer(() => {
 	const { blockchainStore } = useStore();
 	const orderedBlocks =
 		blockchainStore.blocks.length > 1
@@ -21,6 +21,6 @@ const Blocks = () => {
 			<ul className="blocks">{renderBlocks}</ul>
 		</div>
 	);
-};
+});
 
 export default Blocks;
