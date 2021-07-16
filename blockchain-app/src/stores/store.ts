@@ -6,15 +6,15 @@ interface Store {
 	blockchainStore: BlockchainStore;
 }
 
-//this goes in index
+//declare and export 'store' object to implement in index.js
 export const store: Store = {
 	blockchainStore: new BlockchainStore(),
 };
 
-//this goes in index
+//create Context for 'store', wrap around <App /> in index.js
 export const StoreContext = createContext(store);
 
-//this goes in App
+//hook to be used in components to access Store
 export function useStore() {
 	return useContext(StoreContext);
 }

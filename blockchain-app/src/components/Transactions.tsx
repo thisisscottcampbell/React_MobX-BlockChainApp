@@ -5,12 +5,6 @@ import { useStore } from '../stores/store';
 const Transactions: FC = observer(() => {
 	const { blockchainStore } = useStore();
 
-	useEffect(() => {
-		const updateBlock = setInterval(() => blockchainStore.writeBlock(), 5000);
-
-		return () => clearInterval(updateBlock);
-	});
-
 	return blockchainStore.transactions.length > 0 ? (
 		<div>
 			<h3>Pending Transactions</h3>

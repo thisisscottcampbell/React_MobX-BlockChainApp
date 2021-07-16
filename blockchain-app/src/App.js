@@ -1,13 +1,21 @@
+import React, { useEffect } from 'react';
+import { useStore } from './stores/store';
 import './App.css';
 import Home from './components/Home';
 import AddTransactions from './components/AddTransactions';
 
 function App() {
+	const { blockchainStore } = useStore();
+	useEffect(() => {
+		const updateBlock = setInterval(() => blockchainStore.writeBlock(), 5000);
+
+		return () => clearInterval(updateBlock);
+	});
 	return (
 		<div className="App">
-			MobX Blockchain App
-			<AddTransactions />
+			<h1>MobX Blockchain App</h1>
 			<Home />
+			<AddTransactions />
 		</div>
 	);
 }

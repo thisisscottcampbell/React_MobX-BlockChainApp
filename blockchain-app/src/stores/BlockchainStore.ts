@@ -10,6 +10,10 @@ export class BlockchainStore {
 		makeAutoObservable(this);
 	}
 
+	get numberBlocks() {
+		return this.blocks.length;
+	}
+
 	addTransaction(message: string) {
 		this.transactions.push(message);
 	}
